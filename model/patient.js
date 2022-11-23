@@ -12,26 +12,35 @@ const  userSchema= mongoose.Schema({
         type:String,
         required:false
     },
-    patientZipcode:{
+    age:{
         type:Number,
         required:false
     },
+    
     aadharSsn:{
         type:String,
         required:false
     },
     contactNo:{
         type:Number,
-        required:false1
+        required:false
     },
     emailId:{
         type:String,
+        required:false
+    },
+    patientZipcode:{
+        type:Number,
+        required:false
+    },
+    otp:{
+        type:Number,
         required:false
     }
 },{versionKey:false})
 
 
 
-const  userModel=mongoose.model('users',userSchema)
+const  userModel=mongoose.model('patientDetails',userSchema)
 
 module.exports=userModel

@@ -1,6 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const app = express()
+app.use(express.urlencoded({extended:true}));   
 
 
 mongoose.connect('mongodb+srv://amrg_5612:Mongo_5612@botathon.8ytyjss.mongodb.net/Healthcare?retryWrites=true&w=majority',{useNewUrlParser: true,useUnifiedTopology: true})
@@ -16,6 +17,6 @@ console.log('Success')})
 const login=require('./controller/login')
 app.use(login)
 
-
-
-
+app.get('/',(req,res)=>{
+    res.send("YES")
+})
