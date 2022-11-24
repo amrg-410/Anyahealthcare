@@ -18,7 +18,7 @@ const  userSchema= mongoose.Schema({
     },
     
     aadharSsn:{
-        type:String,
+        type:Number,
         required:false
     },
     contactNo:{

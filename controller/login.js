@@ -30,8 +30,10 @@ function generateOTP() {
 
 
 route.post('/verifyUser',(req,res)=>{
-        user.findOne({patientDob:req.body.patientDob,aadharSsn:req.body.aadharSsn,patientZipcode:req.body.patientZipcode})
+        console.log(req.body)
+        user.findOne({patientDob:req.body.patientDob,aadhaarSsn:req.body.aadhaarSsn,patientZipcode:req.body.zipCode})
         .then((result)=>{
+            console.log(result)
             if(result === null)
             {
                 res.sendStatus(404)
@@ -48,10 +50,11 @@ route.post('/verifyUser',(req,res)=>{
 
 route.post("/sendMail",(req,res)=>{
     console.log(req.body)
-     user.findOne({patientDob:req.body.patientDob,aadharSsn:req.body.aadharSsn,patientZipcode:req.body.patientZipcode})
-     .then((result)=>{
+        user.findOne({patientDob:req.body.patientDob,aadhaarSsn:req.body.aadhaarSsn,patientZipcode:req.body.zipCode})
+        .then((result)=>{ 
         const otp=generateOTP()
         result.otp=otp
+        console.log(result)   
         console.log(otp)
        const htmlToSend = template({user:result.patientName,otp:otp}) 
         const mailOptions = {
@@ -67,7 +70,8 @@ route.post("/sendMail",(req,res)=>{
               res.sendStatus(400)
             } else {
                 result.save()
-                res.send('mail sent')       
+                res.send('mail sent')    
+                res.sendStatus(200)   
             }
           });
     })
@@ -78,11 +82,14 @@ route.post("/sendMail",(req,res)=>{
 
 
 route.post('/checkOtp',(req,res)=>{
-    user.findOne({patientDob:req.body.patientDob,aadharSsn:req.body.aadharSsn,patientZipcode:req.body.patientZipcode})
+    user.findOne({patientDob:req.body.patientDob,aadhaarSsn:req.body.aadhaarSsn,patientZipcode:req.body.zipCode})
     .then((result)=>{
-            if(result.otp === req.body.otp)
+            console.log(req.body.otp)
+            console.log(result.otp)
+            if(result.otp == req.body.otp)
             {   console.log('Otp verified')
-                    res.sendStatus(200)            
+                    res.sendStatus(200)
+                    res.send(result) 
             }
             else{    
                 res.sendStatus(400)
@@ -92,5 +99,7 @@ route.post('/checkOtp',(req,res)=>{
         console.log(err)
     })
 })
+
+
 
 module.exports=route
