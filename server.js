@@ -12,7 +12,6 @@ mongoose.connect('mongodb+srv://amrg_5612:Mongo_5612@botathon.8ytyjss.mongodb.ne
 console.log('Success')})
 .catch((err)=>{console.log(err)})
 
-
 //route  to login  
 const login=require('./controller/login')
 app.use(login)
