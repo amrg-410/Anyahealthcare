@@ -88,8 +88,8 @@ route.post('/checkOtp',(req,res)=>{
             console.log(result.otp)
             if(result.otp == req.body.otp)
             {   console.log('Otp verified')
-                    res.sendStatus(200)
                     res.send(result) 
+                    return res.sendStatus(200)
             }
             else{    
                 res.sendStatus(400)
@@ -99,7 +99,6 @@ route.post('/checkOtp',(req,res)=>{
         console.log(err)
     })
 })
-
 
 
 module.exports=route
