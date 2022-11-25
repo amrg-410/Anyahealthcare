@@ -4,7 +4,7 @@ const nodemailer=require("nodemailer")
 const handlebars = require("handlebars")
 const fs = require("fs")
 const path = require("path")
-const emailTemplateSource = fs.readFileSync(path.join(__dirname, "/template.hbs"), "utf8") 
+const emailTemplateSource = fs.readFileSync(path.join(__dirname, "/templateOtp.hbs"), "utf8") 
 
 let transporter = {
     service: 'gmail',
