@@ -16,6 +16,10 @@ console.log('Success')})
 const login=require('./controller/login')
 app.use(login)
 
+//route to appointment
+const appointment=require('./controller/appointment')
+app.use(appointment)
+
 app.get('/',(req,res)=>{
     res.send("YES")
 })

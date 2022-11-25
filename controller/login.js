@@ -1,5 +1,6 @@
 const route = require('express').Router()
 const user = require('../model/patient')
+const bcrypt = require("bcrypt")
 const nodemailer=require("nodemailer")  
 const handlebars = require("handlebars")
 const fs = require("fs")
@@ -54,8 +55,8 @@ route.post("/sendMail",(req,res)=>{
         .then((result)=>{ 
         const otp=generateOTP()
         result.otp=otp
-        console.log(result)   
-        console.log(otp)
+        result.save()
+        console.log(result.otp)
        const htmlToSend = template({user:result.patientName,otp:otp}) 
         const mailOptions = {
         from:'anyahealthcarebot@gmail.com', 
@@ -69,7 +70,6 @@ route.post("/sendMail",(req,res)=>{
               console.log(err);
               res.sendStatus(400)
             } else {
-                result.save()
                 res.send('mail sent')    
                 res.sendStatus(200)   
             }
@@ -86,14 +86,16 @@ route.post('/checkOtp',(req,res)=>{
     .then((result)=>{
             console.log(req.body.otp)
             console.log(result.otp)
-            if(result.otp == req.body.otp)
-            {   console.log('Otp verified')
+            bcrypt.compare(result.otp,req.body.otp,function(err,info){
+                if(err){
+                    res.sendStatus(400)
+                }
+                else{
+                    console.log('Otp verified')
                     res.send(result) 
                     return res.sendStatus(200)
-            }
-            else{    
-                res.sendStatus(400)
-            }
+                }
+            })
     })
     .catch(err=>{
         console.log(err)
