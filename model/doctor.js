@@ -9,7 +9,7 @@ const  userSchema= mongoose.Schema({
         required:false
     },
     providerSpeciality:{
-        type:Number,
+        type:String,
         required:false
     },
     providerZipcode:{
