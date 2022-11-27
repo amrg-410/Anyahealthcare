@@ -14,11 +14,6 @@ const  userSchema= mongoose.Schema({
         type:String,
         required:false
     },
-    age:{
-        type:Number,
-        required:false
-    },
-    
     aadharSsn:{
         type:Number,
         required:false

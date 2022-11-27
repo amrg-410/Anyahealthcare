@@ -88,12 +88,12 @@ route.post('/checkOtp',(req,res)=>{
             console.log(result.otp)
             bcrypt.compare(result.otp,req.body.otp,function(err,info){
                 if(err){
-                    res.sendStatus(400)
+                    return res.sendStatus(400)
                 }
                 else{
                     console.log('Otp verified')
-                    res.send(result) 
-                    return res.sendStatus(200)
+                    res.send(result)
+                    // res.sendStatus(200)
                 }
             })
     })

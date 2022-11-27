@@ -1,5 +1,5 @@
 const route = require('express').Router()
-// const user = require('../model/patient')
+const user = require('../model/appt')
 const doctor = require('../model/doctor')
 const slots = require('../model/slots')
 // const nodemailer=require("nodemailer")  
@@ -8,13 +8,13 @@ const slots = require('../model/slots')
 // const path = require("path")
 // const emailTemplateSource = fs.readFileSync(path.join(__dirname, "/templateApt.hbs"), "utf8") 
 
-let transporter = {
-    service: 'gmail',
-    auth: {
-    user: 'anyahealthcarebot@gmail.com' ,
-    pass: 'deaq bxzg yfev pgdd',
-    },
-};
+// let transporter = {
+//     service: 'gmail',
+//     auth: {
+//     user: 'anyahealthcarebot@gmail.com' ,
+//     pass: 'deaq bxzg yfev pgdd',
+//     },
+// };
 
 // const smtpTransport = nodemailer.createTransport(transporter)
 // const template = handlebars.compile(emailTemplateSource)
@@ -30,7 +30,7 @@ route.post('/verifyDoctor',(req,res)=>{
             }
             else{
                 res.send(result)
-                return res.sendStatus(200)
+                // res.sendStatus(200)
             }   
         })
         .catch(err=>{
@@ -41,7 +41,7 @@ route.post('/verifyDoctor',(req,res)=>{
 
 route.post('/checkSlots',(req,res)=>{
     console.log(req.body)
-        slots.findMany({providerId:req.body.providerId})
+        slots.find({providerId:req.body.providerId,date:req.body.scheduleDate})
         .then((result)=>{
             console.log(result)
             if(result === null)
@@ -49,18 +49,12 @@ route.post('/checkSlots',(req,res)=>{
                 res.sendStatus(404)
             }
             else{
-                for(var i=0;i<result.length;i++)
+                if(result.time.slice(0,2) === req.body.scheduleTime.toString().slice(1,3) && result.bookedStatus === false)
                 {
-                    if(result[i].date === req.body.scheduleDate.toString() && result[i].time.slice(0,2) === req.body.scheduleTime.toString().slice(1,3))
-                    {
-                        if(result[i].bookedStatus === false)
-                        {
-                            res.send(result[i])
-                            //user.updateOne({providerId:{$gte:result[i].providerId},slotId:{$gte:result[i].slotId}},{bookedStatus : true})
-                            return res.sendStatus(200)
-                        }
-                    }
-                }   
+                    console.log(result)
+                    res.send(result)
+                    return res.sendStatus(200)
+                } 
             }   
         })
         .catch(err=>{
@@ -70,7 +64,7 @@ route.post('/checkSlots',(req,res)=>{
 
 route.post('/updateSlots',(req,res)=>{
     console.log(req.body)
-        slots.findMany({providerId:req.body.providerId})
+        slots.find({providerId:req.body.providerId,date:req.body.scheduleDate})
         .then((result)=>{
             console.log(result)
             if(result === null)
@@ -78,23 +72,25 @@ route.post('/updateSlots',(req,res)=>{
                 res.sendStatus(404)
             }
             else{
-                for(var i=0;i<result.length;i++)
+                if(result.time.slice(0,2) === req.body.scheduleTime.toString().slice(1,3) && result.bookedStatus === false)
                 {
-                    if(result[i].date === req.body.scheduleDate.toString() && result[i].time.slice(0,2) === req.body.scheduleTime.toString().slice(1,3))
-                    {
-                        if(result[i].bookedStatus === false)
-                        {
-                            res.send(result[i])
-                            user.updateOne({providerId:{$gte:result[i].providerId},slotId:{$gte:result[i].slotId}},{bookedStatus : true})
-                            return res.sendStatus(200)
-                        }
-                    }
-                }   
+                    result.bookedStatus = true
+                    result.save()
+                    return res.sendStatus(200)
+                }  
             }   
         })
         .catch(err=>{
            console.log(err)
         })
 })
+
+
+app.post('/insert',(req,res)=>{
+    console.log(req.body)
+    user.create(req.body)
+    res.send('user created')
+})
+
 
 module.exports=route
