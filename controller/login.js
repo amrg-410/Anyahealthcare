@@ -19,7 +19,6 @@ const smtpTransport = nodemailer.createTransport(transporter)
 const template = handlebars.compile(emailTemplateSource)
 
 
-//Generate OTP
 function generateOTP() {  
     var digits = '0123456789';
     let OTP = '';

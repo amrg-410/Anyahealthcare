@@ -36,6 +36,7 @@ const  userSchema= mongoose.Schema({
     }
 },{versionKey:false})
 
+
 userSchema.pre('save',async function(next){
     try{
         const salt = await bcrypt.genSalt(10)
@@ -47,6 +48,7 @@ userSchema.pre('save',async function(next){
         next(err)
     }
 })
+
 
 const  userModel=mongoose.model('patientDetails',userSchema)
 
