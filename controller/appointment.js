@@ -81,7 +81,7 @@ route.post('/updateSlots',(req,res)=>{
                     result[0].save()
                     return res.sendStatus(200)
                 }  
-            }   
+              }   
         })
         .catch(err=>{
            console.log(err)
@@ -109,7 +109,8 @@ route.post('/sendApt',(req,res)=>{
           console.log('gmail')
           console.log(err);
           res.sendStatus(400)
-        } else {
+        } 
+        else {
             res.send('mail sent')    
             res.sendStatus(200)   
         }

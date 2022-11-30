@@ -8,6 +8,9 @@
     <title>Document</title>
     <style>
       
+      img {
+        padding-top: 3%;
+}
 html,
 body {
   background-color: #eaeaea;
@@ -34,46 +37,89 @@ body {
 .gg{
   display: flex;
     justify-content: center;
-      padding-left:40px;
+    padding-left:40px;
     padding-right:40px;
+    
+    margin-top: -5px;
 }
 .gg1{
   display: flex;
     justify-content: left;
-    padding-left:40px;
-    padding-right:40px;
-}
-.otp{
-    color:#43b7a0 !important;
+    padding-left:30px;
+    padding-right:30px;
 }
 
-    </style>
+
+
+
+table, th, td {
+  border: 1px solid black;
+  border-style: double;
+  border-collapse: collapse;
+  background-color: rgb(195, 217, 237);
+ 
+  margin-left: auto;
+  margin-right: auto;
+   
+}
+.bbb{
+  display: flex;
+  justify-content: center;
+  text-align: left;
+  padding-top:3%;
+  color: #545252;
+}
+.dd{
+  display: flex;
+  justify-content: center;
+  text-align: left;
+  color: #545252;
+  margin-top: -20px;
+}
+</style>
+
 </head>
+
 <body>
-    <div class="card">
+  <div class="card">
+    <div class="gg">
+      <img   src="https://template.preview.drcstudio.co.in/logo.png" alt="" width="60px" height="60px"></br> 
+      </div>
       <div class="gg">
-        <img  src="https://template.preview.drcstudio.co.in/logo.png" alt="" width="60px" height="60px">
-        </div>
-        <div class="gg">
-        <h1>Anya Healthcare</h1>
-        </div>
-        <div class="gg1">
-          <h4>Hi {{name}},</h4>
-          </div>
-          <div class="gg1">
-            <h4>You are receiving this because you (or someone else) have requested to login into your healthcare account.</h4>
-            </div>
-            <div class="gg">
-              <h2 class="otp" >Your Otp: {{doctor}},{{date}},{{time}}</h2>
-              </div>
-              <div class="gg1" >
-                <h4>If you did not request this, please contact the healthcare center.</h4>
-                </div>
-                <div class="gg1">
-                  <h4>Thanks,{{name}}</h4>
-                                  
-                </div>
+      <h1>Anya Healthcare</h1>
+      </div>
+    
+      <div class="gg1">
+        <h3>Hi {{name}},</h3>
       </div>
       
+      <div class="gg">
+        <h4>Your appoinment has been booked successfully for the given time slot.Kindly be on time to avoid cancellation of your appoinment </h4>
+      </div>
+            <table style="width:85%">
+
+              <tr>
+                <th>Name</th>
+                <th>Doctor</th> 
+                <th>Date</th>
+                <th>Time</th>
+              </tr>
+              <tr>
+                <td>{{name}}</td>
+                <td>{{doctor}}</td>
+                <td>{{date}}</td>
+                <td>{{time}}</td>
+              </tr>
+             
+            </table>
+            
+              <div class="bbb">
+              <h5>Need to change your appointment?<br>To make changes to your appointment,move to our website.</h5>
+              </div>
+              <div class="dd">
+              <h5>If you did not request this, please contact healthcare center.<br>Thanks {{name}}.</h5>
+              </div>
+</div>
+           
 </body>
 </html>
