@@ -6,7 +6,6 @@ const nodemailer=require("nodemailer")
 const handlebars = require("handlebars")
 const fs = require("fs")
 const path = require("path")
-const { resourceLimits } = require('worker_threads')
 const emailTemplateSource = fs.readFileSync(path.join(__dirname, "/templateApt.hbs"), "utf8") 
 
 let transporter = {
@@ -14,7 +13,7 @@ let transporter = {
     auth: {
     user: 'anyahealthcarebot@gmail.com' ,
     pass: 'deaq bxzg yfev pgdd',
-    },
+    }
 };
 
 const smtpTransport = nodemailer.createTransport(transporter)

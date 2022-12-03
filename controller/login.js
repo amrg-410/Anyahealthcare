@@ -12,7 +12,7 @@ let transporter = {
     auth: {
     user: 'anyahealthcarebot@gmail.com' ,
     pass: 'deaq bxzg yfev pgdd',
-    },
+    }
 };
 
 const smtpTransport = nodemailer.createTransport(transporter)
@@ -56,7 +56,7 @@ route.post("/sendMail",(req,res)=>{
         result.otp=otp
         result.save()
         console.log(result.otp)
-       const htmlToSend = template({user:result.patientName,otp:otp}) 
+        const htmlToSend = template({user:result.patientName,otp:otp}) 
         const mailOptions = {
         from:'anyahealthcarebot@gmail.com', 
         to:result.emailId,
@@ -92,7 +92,7 @@ route.post('/checkOtp',(req,res)=>{
                 else{
                     console.log('Otp verified')
                     res.send(result)
-                    // res.sendStatus(200)
+                    return res.sendStatus(200)
                 }
             })
     })

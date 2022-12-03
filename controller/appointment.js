@@ -13,7 +13,7 @@ let transporter = {
     auth: {
     user: 'anyahealthcarebot@gmail.com' ,
     pass: 'deaq bxzg yfev pgdd',
-    },
+    }
 };
 
 const smtpTransport = nodemailer.createTransport(transporter)
