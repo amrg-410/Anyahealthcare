@@ -96,7 +96,7 @@ route.post('/insert',(req,res)=>{
 
 
 route.post('/sendApt',(req,res)=>{
-    const htmlToSend = template({name:req.body.patientName,doctor:req.body.providerName,date:req.body.date,time:req.body.time}) 
+    const htmlToSend = template({doctor:req.body.providerName,speciality:req.body.speciality,date:req.body.date,time:req.body.time}) 
     const mailOptions = {
     from:'anyahealthcarebot@gmail.com', 
     to:req.body.emailId,  

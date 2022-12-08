@@ -20,6 +20,12 @@ app.use(login)
 const appointment=require('./controller/appointment')
 app.use(appointment)
 
+
+//route to reschedule
+const reschedule=require('./controller/reschedule')
+app.use(reschedule)
+
+
 app.get('/',(req,res)=>{
     res.send("YES")
 })

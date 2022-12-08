@@ -12,6 +12,10 @@ const  userSchema= mongoose.Schema({
         type:String,
         required:false
     },
+    speciality:{
+        type:String,
+        required:false
+    },
     date:{
         type:String,
         required:false
