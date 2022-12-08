@@ -26,6 +26,11 @@ const reschedule=require('./controller/reschedule')
 app.use(reschedule)
 
 
+//route to cancel
+const cancel=require('./controller/cancel')
+app.use(cancel)
+
+
 app.get('/',(req,res)=>{
     res.send("YES")
 })
