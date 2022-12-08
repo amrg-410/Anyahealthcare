@@ -8,6 +8,7 @@ const fs = require("fs")
 const path = require("path")
 const emailTemplateSource = fs.readFileSync(path.join(__dirname, "/templateApt.hbs"), "utf8") 
 
+
 let transporter = {
     service: 'gmail',
     auth: {
@@ -16,23 +17,31 @@ let transporter = {
     }
 };
 
+
 const smtpTransport = nodemailer.createTransport(transporter)
 const template = handlebars.compile(emailTemplateSource)
 
 
-
 route.post('/verifyApt',(req,res)=>{
-  user.find({patientId:req.body.patientId})
-  .then((result)=>{
-          res.send(result)
-  })
-  .catch(err=>{
-    console.log(err)
- })
+  console.log(req.body)
+      user.findOne({providerZipcode:req.body.zipCode,providerSpeciality:req.body.speciality})
+      .then((result)=>{
+          console.log(result)
+          if(result === null){
+              res.sendStatus(404)
+          }
+          else{
+              res.send(result)
+              return res.sendStatus(200)
+          }   
+      })
+      .catch(err=>{
+         console.log(err)
+      })
 })
 
 
-route.post('/sendApt',(req,res)=>{
+route.post('/sendReApt',(req,res)=>{
     const htmlToSend = template({name:req.body.patientName,doctor:req.body.providerName,date:req.body.date,time:req.body.time}) 
     const mailOptions = {
     from:'anyahealthcarebot@gmail.com', 

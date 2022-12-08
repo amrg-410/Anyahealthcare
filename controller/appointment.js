@@ -24,8 +24,7 @@ route.post('/verifyDoctor',(req,res)=>{
         doctor.findOne({providerZipcode:req.body.zipCode,providerSpeciality:req.body.speciality})
         .then((result)=>{
             console.log(result)
-            if(result === null)
-            {
+            if(result === null){
                 res.sendStatus(404)
             }
             else{

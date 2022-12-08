@@ -92,7 +92,7 @@ route.post('/checkOtp',(req,res)=>{
                 else{
                     console.log('Otp verified')
                     res.send(result)
-                    return res.sendStatus(200)
+                    // res.sendStatus(200)
                 }
             })
     })
