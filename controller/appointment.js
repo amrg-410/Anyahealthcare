@@ -40,18 +40,18 @@ route.post('/verifyDoctor',(req,res)=>{
 
 route.post('/checkSlots',(req,res)=>{
     console.log(req.body)
-        slots.find({providerId:req.body.providerId,date:req.body.scheduleDate})
+        slots.findOne({providerId:req.body.providerId,date:req.body.scheduleDate})
         .then((result)=>{
-            console.log(result[0])
-            if(result[0] === null)
+            console.log(result)
+            if(result === null)
             {
                 res.sendStatus(404)
             }
             else{
-                if(result[0].time.slice(0,2) === req.body.scheduleTime.toString().slice(1,3) && result[0].bookedStatus === false)
+                if(result.time.slice(0,2) === req.body.scheduleTime.toString().slice(1,3) && result.bookedStatus === false)
                 {
-                    console.log(result[0])
-                    res.send(result[0])
+                    console.log(result)
+                    res.send(result)
                     return res.sendStatus(200)
                 } 
                 else{
@@ -64,9 +64,10 @@ route.post('/checkSlots',(req,res)=>{
         })
 })
 
+
 route.post('/updateSlots',(req,res)=>{
     console.log(req.body)
-        slots.find({providerId:req.body.providerId,date:req.body.scheduleDate})
+        slots.findOne({providerId:req.body.providerId,date:req.body.scheduleDate})
         .then((result)=>{
             console.log(result)
             if(result === null)
@@ -74,10 +75,10 @@ route.post('/updateSlots',(req,res)=>{
                 res.sendStatus(404)
             }
             else{
-                if(result[0].time.slice(0,2) === req.body.scheduleTime.toString().slice(1,3) && result[0].bookedStatus === false)
+                if(result.time.slice(0,2) === req.body.scheduleTime.toString().slice(1,3) && result.bookedStatus === false)
                 {
-                    result[0].bookedStatus = true
-                    result[0].save()
+                    result.bookedStatus = true
+                    result.save()
                     return res.sendStatus(200)
                 }  
               }   

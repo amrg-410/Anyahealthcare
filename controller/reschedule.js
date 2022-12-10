@@ -26,13 +26,13 @@ route.post('/verifyApt',(req,res)=>{
   console.log(req.body)
       user.find({patientId:req.body.patientId})
       .then((result)=>{
-          console.log(result)
-          if(result === null){
+          console.log(result.length)
+          if(result.length === 0){
               res.sendStatus(404)
           }
           else{
               res.send(result)
-              return res.sendStatus(200)
+              return res.sendStatus(200) 
           }   
       })
       .catch(err=>{

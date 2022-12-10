@@ -12,9 +12,11 @@ mongoose.connect('mongodb+srv://amrg_5612:Mongo_5612@botathon.8ytyjss.mongodb.ne
 console.log('Success')})
 .catch((err)=>{console.log(err)})
 
+
 //route  to login  
 const login=require('./controller/login')
 app.use(login)
+
 
 //route to appointment
 const appointment=require('./controller/appointment')
@@ -29,6 +31,11 @@ app.use(reschedule)
 //route to cancel
 const cancel=require('./controller/cancel')
 app.use(cancel)
+
+
+//route to vicinity
+const vicinity=require('./controller/vicinity')
+app.use(vicinity)
 
 
 app.get('/',(req,res)=>{
