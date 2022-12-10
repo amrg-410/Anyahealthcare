@@ -77,7 +77,8 @@ route.post('/updateApt',(req,res)=>{
 
 
 route.post('/sendReApt',(req,res)=>{
-  const htmlToSend = template({speciality:req.body.speciality,doctor:req.body.providerName,date:req.body.date,time:req.body.time}) 
+  console.log(req.body)
+  const htmlToSend = template({name:req.body.patientName,doctor:req.body.providerName,speciality:req.body.speciality,date:req.body.date,time:req.body.time}) 
   const mailOptions = {
   from:'anyahealthcarebot@gmail.com', 
   to:req.body.emailId,  
