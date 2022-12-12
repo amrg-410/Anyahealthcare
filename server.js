@@ -38,6 +38,11 @@ const vicinity=require('./controller/vicinity')
 app.use(vicinity)
 
 
+//route to insurance
+const insurance=require('./controller/insurance')
+app.use(insurance)
+
+
 app.get('/',(req,res)=>{
     res.send("YES")
 })
