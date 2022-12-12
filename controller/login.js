@@ -56,7 +56,7 @@ route.post("/sendMail",(req,res)=>{
         result.otp=otp
         result.save()
         console.log(result.otp)
-        const htmlToSend = template({user:result.patientName,otp:otp}) 
+        const htmlToSend = template({name:result.patientName,otp:otp}) 
         const mailOptions = {
         from:'anyahealthcarebot@gmail.com', 
         to:result.emailId,

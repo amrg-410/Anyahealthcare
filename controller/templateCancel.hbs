@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,9 +8,6 @@
     <title>Document</title>
     <style>
       
-      img {
-        padding-top: 3%;
-}
 html,
 body {
   background-color: #eaeaea;
@@ -23,7 +19,7 @@ body {
 }
 
 .card {
-  background-color: #fff;
+  background-color: #fff;
   height: 600px;
   width: 500px;
   position: absolute;
@@ -38,85 +34,68 @@ body {
 .gg{
   display: flex;
     justify-content: center;
-    padding-left:40px;
+      padding-left:40px;
     padding-right:40px;
-    
-    margin-top: -5px;
+    color: black;
+
+}
+.bb{
+  text-align: center;
+  color: black;
+}
+td{
+    padding-left: 20px;
 }
 .gg1{
   display: flex;
     justify-content: left;
-    padding-left:30px;
-    padding-right:30px;
-    margin-top: -10px;
-}
-.aa{
-    display: flex;
-    justify-content: left;
-    text-align:left;
-    color:black;
-    padding-left:30px;
-    padding-right:30px;
-    margin-top: -20px;
-}
-
-.bbb{
-  display: flex;
-  justify-content: left;
-  text-align: left;
-  padding-top:3%;
-  color: #545252;
-  padding-left:30px;
-    padding-right:30px;
-   
-}
-
-.dd{
-  display: flex;
-  justify-content: center;
-  text-align: left;
-  color: #545252;
-  margin-top: -40px;
-  padding-left:0px;
+    padding-left:40px;
     padding-right:40px;
+    color: rgb(0, 0, 0);
 }
-</style>
 
+table, th, td {
+  color: black;
+  
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+}
+th, td {
+text-align: center;
+  border-radius: 10px;
+  border-style: double;
+}
+
+    </style>
 </head>
-
 <body>
     <div class="card">
-        <div class="gg">
-          <img  src="https://template.preview.drcstudio.co.in/logo.png" alt="" width="60px" height="60px">
-          </div>
-          <div class="gg">
-          <h1>Anya Healthcare</h1>
-          </div>
-
-            <div class="gg1">
-              <h4>Hi {{name}},</h4>
-
-              </div>
-              <div class="gg1">
-                <h4>Your account has been canceled. We're really sorry to see you go! </h4>
-                </div>
-
-                <div class="aa">
-                    <h5>This email confirms that your appoinment has been canceled.<br>We're really sorry to see you go,but thanks for giving us a try.</h5>
-                </div>
-                <div class="aa">
-                    <h5>If you feel any difficulties,We do our best to make sure our service is accessible and reliable.</h5>
-                </div>
-
-
-              
-                <div class="bbb" >
-                    <h5>Thanks for being a part of our community.<br>We hope to see you around.</h5>
-                  </div>
-                  <div class="dd">
-                    <h5>If you did not request this, please contact healthcare center.<br>Thanks {{name}}.</h5> 
-                  </div>
+    
+        <img style= "margin-left: 45%; margin-top:10px;" src = "https://template.preview.drcstudio.co.in/logo2.png" alt="" width="100px" height="100px" class="center">
+        
+        <div class="bb">
+        <h1 style="font-family: serif">Anya Healthcare</h1>
         </div>
-           
+        <div class="gg1">
+          <h3 style="font-family: serif">Hi {{name}},</h3>
+          </div>
+          <div class="gg1">
+            <h4 style="font-family: serif">Your account has been canceled. We're really sorry to see you go!  </h3>
+            </div>
+              <div class="gg1">
+            <h4 style="font-family: serif">This email confirms that your appoinment has been canceled. We're really sorry to see you go,but thanks for giving us a try.</h4>
+            </div>
+             <div class="gg1">
+            <h4 style="font-family: serif">If you feel any difficulties,We do our best to make sure our service is accessible and reliable.</h4>
+            </div>
+              
+              
+                <div class="gg1">
+                  <h4 style="font-family: serif">Thanks,{{name}} for being a part of our community. We hope to see you around.</h4>
+                                  
+                </div>
+      </div>
+      
 </body>
 </html>

@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,9 +8,6 @@
     <title>Document</title>
     <style>
       
-      img {
-        padding-top: 3%;
-}
 html,
 body {
   background-color: #eaeaea;
@@ -23,7 +19,7 @@ body {
 }
 
 .card {
-  background-color: #fff;
+  background-color: #fff;
   height: 600px;
   width: 500px;
   position: absolute;
@@ -38,91 +34,91 @@ body {
 .gg{
   display: flex;
     justify-content: center;
-    padding-left:40px;
+      padding-left:40px;
     padding-right:40px;
-    
-    margin-top: -5px;
+    color: black;
+
+}
+.bb{
+  text-align: center;
+  color: black;
+}
+td{
+    padding-left: 20px;
 }
 .gg1{
   display: flex;
     justify-content: left;
-    padding-left:30px;
-    padding-right:30px;
+    padding-left:40px;
+    padding-right:40px;
+    color: black;
 }
-
-
-
-
+.otp{
+    color:#43b7a0 !important;
+}
 table, th, td {
-  border: 1px solid black;
-  border-style: double;
-  border-collapse: collapse;
-  background-color: rgb(195, 217, 237);
- 
+  color: black;
+  
+  margin-top: 30px;
   margin-left: auto;
   margin-right: auto;
-   
 }
-.bbb{
-  display: flex;
-  justify-content: center;
-  text-align: left;
-  padding-top:3%;
-  color: #545252;
+th, td {
+text-align: center;
+  border-radius: 10px;
+  border-style: double;
 }
-.dd{
-  display: flex;
-  justify-content: center;
-  text-align: left;
-  color: #545252;
-  margin-top: -20px;
-}
-</style>
 
+    </style>
 </head>
-
 <body>
-  <div class="card">
-    <div class="gg">
-      <img   src="https://template.preview.drcstudio.co.in/logo.png" alt="" width="60px" height="60px"></br> 
-      </div>
-      <div class="gg">
-      <h1>Anya Healthcare</h1>
-      </div>
-    
-      <div class="gg1">
-        <h3>Hi {{name}},</h3>
+    <div class="card">
+      <img style= "margin-left: 45%; margin-top:10px;" src = "https://template.preview.drcstudio.co.in/logo2.png" alt="" width="100px" height="100px" class="center">
+        <div class="bb">
+        <h1 style="font-family: serif">Anya Healthcare</h1>
+        </div>
+        <div class="gg1">
+          <h4 style="font-family: serif">Hi {{name}},</h4>
+          </div>
+          <div class="gg1">
+            <h4 style="font-family: serif">Your appoinment has been booked successfully for the given time slot. Kindly be on time to avoid cancelation of your appoinment </h4>
+            </div>
+              <table >
+                   <thead>
+                      <tr>
+                        <th style="font-family: serif">DoctorName</th>
+                        <th style="font-family: serif">Speciality</th>
+                        <th style="font-family: serif">Appoinment Date</th>
+                        <th style="font-family: serif">Allocated Slot</th>
+                        
+
+                </tr>
+                     </thead>
+                     <tbody>
+                       {{#each data}}
+                        <tr>
+                            
+                            <td style="font-family: serif"> {{this.doctor}}</td>
+                            <td style="font-family: serif"> {{this.speciality}} </td>
+                            <td style="font-family: serif"> {{this.date}}</td>
+                            <td style="font-family: serif"> {{this.time}}</td>
+                            
+                    </tr>
+                    {{/each}}
+                     </tbody>
+                
+                
+              </table>
+
+              
+              <div class="gg1" >
+                <h4 style="font-family: serif">Need to change your appointment? To make changes to your appointment,move to our website.</h4>
+                </div>
+                <div class="gg1">
+                  <h4 style="font-family: serif">Thanks,{{name}}</h4>
+                                  
+                </div>
       </div>
       
-      <div class="gg">
-        <h4>Your appoinment has been booked successfully for the given time slot.Kindly be on time to avoid cancellation of your appoinment </h4>
-      </div>
-            <table style="width:85%">
-
-              <tr>
-                <th>Doctor</th>
-                <th>Speciality</th> 
-                <th>Date</th>
-                <th>Time</th>
-              </tr>
-              <tr>
-                <td>{{doctor}}</td>
-                <td>{{speciality}}</td>
-                <td>{{date}}</td>
-                <td>{{time}}</td>
-              </tr>
-             
-            </table>
-            
-              <div class="bbb">
-              <h5>Need to change your appointment?<br>To make changes to your appointment,move to our website.</h5>
-              </div>
-              <div class="dd">
-              <h5>If you did not request this, please contact healthcare center.<br>Thanks {{name}}.</h5>
-              </div>
-</div>
-           
 </body>
 </html>
-
-
