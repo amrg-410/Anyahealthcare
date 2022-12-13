@@ -1,37 +1,42 @@
 const mongoose=require("mongoose")
 const  userSchema= mongoose.Schema({
-    name:{
+    policyNumber:{
         type:String,
         required:false
     },
-    address:{
-        type:Number,
-        required:false
-    },
-    contactNo:{
-        type:Number,
-        required:false
-    },
-    emailId:{
+    claimHolder:{
         type:String,
         required:false
     },
-    policyNo:{
+    claimType:{
         type:String,
         required:false
     },
-    policyType:{
+    firstTreatment:{
         type:String,
         required:false
     },
-    amount:{
+    motorAccident:{
+        type:String,
+        required:false
+    },  
+    aboutAccident:{
+        type:String,
+        required:false
+    },
+    hospitalAdmittance:{
+        type:String,
+        required:false
+    },
+    sign:{
         type:String,
         required:false
     }
+
 },{versionKey:false})
 
 
 
-const  userModel=mongoose.model('policyDetails',userSchema)
+const  userModel=mongoose.model('claims',userSchema)
 
 module.exports=userModel

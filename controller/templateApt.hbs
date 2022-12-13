@@ -83,32 +83,22 @@ text-align: center;
           <div class="gg1">
             <h4 style="font-family: serif">Your appoinment has been booked successfully for the given time slot. Kindly be on time to avoid cancelation of your appoinment </h4>
             </div>
-              <table >
-                   <thead>
-                      <tr>
-                        <th style="font-family: serif">DoctorName</th>
-                        <th style="font-family: serif">Speciality</th>
-                        <th style="font-family: serif">Appoinment Date</th>
-                        <th style="font-family: serif">Allocated Slot</th>
-                        
-
-                </tr>
-                     </thead>
-                     <tbody>
-                       {{#each data}}
-                        <tr>
-                            
-                            <td style="font-family: serif"> {{this.doctor}}</td>
-                            <td style="font-family: serif"> {{this.speciality}} </td>
-                            <td style="font-family: serif"> {{this.date}}</td>
-                            <td style="font-family: serif"> {{this.time}}</td>
-                            
-                    </tr>
-                    {{/each}}
-                     </tbody>
-                
-                
-              </table>
+              <table style="width:85%">
+    
+                  <tr>
+                    <th style="font-family: serif">Doctor</th>
+                    <th style="font-family: serif">Specialist</th> 
+                    <th style="font-family: serif">Date</th>
+                    <th style="font-family: serif">Time</th>
+                  </tr>
+                  <tr>
+                    <td >{{doctor}}</td>
+                    <td >{{specialist}}</td>
+                    <td >{{date}}</td>
+                    <td >{{time}}</td>
+                  </tr>
+                 
+                </table>
 
               
               <div class="gg1" >
