@@ -5,7 +5,7 @@ const  userSchema= mongoose.Schema({
         required:false
     },
     address:{
-        type:Number,
+        type:String,
         required:false
     },
     contactNo:{

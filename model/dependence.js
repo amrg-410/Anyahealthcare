@@ -4,12 +4,12 @@ const  userSchema= mongoose.Schema({
         type:String,
         required:false
     },
-    dependenceName:{
-        type:Number,
+    dependentsName:{
+        type:String,
         required:false
     },
     relation:{
-        type:Number,
+        type:String,
         required:false
     }
 },{versionKey:false})

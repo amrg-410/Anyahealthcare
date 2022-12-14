@@ -19,7 +19,7 @@ body {
 }
 
 .card {
-  background-color: #fff;
+  background-color:#fef6fa;
   height: 600px;
   width: 500px;
   position: absolute;
@@ -28,7 +28,7 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
-  box-shadow: 0px 0px 108px rgba(0,0,0,0.3);
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.3);
   overflow: hidden;
 }
 .gg{
@@ -42,6 +42,7 @@ body {
 .bb{
   text-align: center;
   color: black;
+
 }
 td{
     padding-left: 20px;
@@ -58,15 +59,16 @@ td{
 }
 table, th, td {
   color: black;
-  
+  border: 1px solid black;
+  border-collapse: collapse;
   margin-top: 30px;
   margin-left: auto;
   margin-right: auto;
 }
 th, td {
 text-align: center;
-  border-radius: 10px;
-  border-style: double;
+border: 1px solid black;
+  border-collapse: collapse;
 }
 
     </style>
@@ -75,21 +77,21 @@ text-align: center;
     <div class="card">
       <img style= "margin-left: 45%; margin-top:10px;" src = "https://template.preview.drcstudio.co.in/logo2.png" alt="" width="100px" height="100px" class="center">
         <div class="bb">
-        <h1 style="font-family: serif">Anya Healthcare</h1>
+        <h1 style="font-family: arial">Anya Healthcare</h1>
         </div>
         <div class="gg1">
-          <h4 style="font-family: serif">Hi {{name}},</h4>
+          <h1 style="font-family: arial">Hi <b>{{name}}</b>,</h1>
           </div>
           <div class="gg1">
-            <h4 style="font-family: serif">Your appoinment has been booked successfully for the given time slot. Kindly be on time to avoid cancelation of your appoinment </h4>
+            <p style="font-size:140%">Your appoinment has been booked successfully for the given time slot. Kindly be on time to avoid cancelation of your appoinment </p>
             </div>
               <table style="width:85%">
     
                   <tr>
-                    <th style="font-family: serif">Doctor</th>
-                    <th style="font-family: serif">Specialist</th> 
-                    <th style="font-family: serif">Date</th>
-                    <th style="font-family: serif">Time</th>
+                    <th style="font-size:140%">Doctor</th>
+                    <th style="font-size:140%">Speciality</th> 
+                    <th style="font-size:140%">Date</th>
+                    <th style="font-size:140%">Time</th>
                   </tr>
                   <tr>
                     <td >{{doctor}}</td>
@@ -102,12 +104,9 @@ text-align: center;
 
               
               <div class="gg1" >
-                <h4 style="font-family: serif">Need to change your appointment? To make changes to your appointment,move to our website.</h4>
+                <p style="font-size:140%">Need to change your appointment? To make changes to your appointment,move to our website.<br>Thanks,<b>{{name}}</b></p>
                 </div>
-                <div class="gg1">
-                  <h4 style="font-family: serif">Thanks,{{name}}</h4>
-                                  
-                </div>
+                
       </div>
       
 </body>

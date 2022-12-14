@@ -43,6 +43,17 @@ const insurance=require('./controller/insurance')
 app.use(insurance)
 
 
+//route to updateProfile
+const updateProfile=require('./controller/updateProfile')
+app.use(updateProfile)
+
+
+
+//route to card
+const card=require('./controller/card')
+app.use(card)
+
+
 app.get('/',(req,res)=>{
     res.send("YES")
 })
