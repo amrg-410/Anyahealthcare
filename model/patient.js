@@ -36,20 +36,6 @@ const  userSchema= mongoose.Schema({
     }
 },{versionKey:false})
 
-
-userSchema.pre('save',async function(next){
-    try{
-        const salt = await bcrypt.genSalt(10)
-        const hashedOtp = await bcrypt.hash(this.otp,salt)
-        this.otp = hashedOtp
-        next()
-    }
-    catch(err){
-        next(err)
-    }
-})
-
-
 const  userModel=mongoose.model('patientDetails',userSchema)
 
 module.exports=userModel

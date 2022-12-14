@@ -1,6 +1,5 @@
 const route = require('express').Router()
 const user = require('../model/patient')
-const bcrypt = require("bcrypt")
 const nodemailer=require("nodemailer")  
 const handlebars = require("handlebars")
 const fs = require("fs")
@@ -85,16 +84,14 @@ route.post('/checkOtp',(req,res)=>{
     .then((result)=>{
             console.log(req.body.otp)
             console.log(result.otp)
-            bcrypt.compare(result.otp,req.body.otp,function(err,info){
-                if(err){
-                    return res.sendStatus(400)
-                }
-                else{
-                    console.log('Otp verified')
-                    res.send(result)
-                    // res.sendStatus(200)
-                }
-            })
+            if(result.otp === req.body.otp){
+                console.log('Otp verified')
+                res.send(result)
+                return res.sendStatus(200)
+            }
+            else{
+                res.sendStatus(404)
+            }
     })
     .catch(err=>{
         console.log(err)
