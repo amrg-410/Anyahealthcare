@@ -38,3 +38,6 @@ route.post('/sendChangePolicy',(req,res)=>{
         }
       });
 })
+
+
+module.exports=route

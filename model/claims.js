@@ -1,5 +1,9 @@
 const mongoose=require("mongoose")
 const  userSchema= mongoose.Schema({
+    name:{
+        type:String,
+        required:false
+    },
     policyNumber:{
         type:String,
         required:false

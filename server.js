@@ -54,6 +54,11 @@ const card=require('./controller/card')
 app.use(card)
 
 
+//route to changePolicy
+const changePolicy=require('./controller/changePolicy')
+app.use(changePolicy)
+
+
 app.get('/',(req,res)=>{
     res.send("YES")
 })
