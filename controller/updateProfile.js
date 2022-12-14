@@ -26,6 +26,7 @@ route.post('/updateDetails',(req,res)=>{
         result.emailId=req.body.emailId
         result.contactNo=req.body.contactNo
         result.save()
+        res.sendStatus(200)
     })
     .catch(err=>{
         console.log(err)
