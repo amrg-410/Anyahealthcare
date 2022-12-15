@@ -59,6 +59,11 @@ const changePolicy=require('./controller/changePolicy')
 app.use(changePolicy)
 
 
+//route to viewClaim
+const viewClaim=require('./controller/viewClaim')
+app.use(viewClaim)
+
+
 app.get('/',(req,res)=>{
     res.send("YES")
 })
