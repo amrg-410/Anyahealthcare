@@ -10,6 +10,7 @@ route.post('/fetchClaims',(req,res)=>{
             res.sendStatus(404)
         }
         else{
+            console.log(result)
             res.send(result)
             return res.sendStatus(200)
         }
