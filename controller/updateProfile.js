@@ -50,6 +50,7 @@ route.post('/upgradeDependencies',(req,res)=>{
     console.log(req.body)
     dependence.create(req.body)
     console.log("Dependents created")
+    res.sendStatus(200)
 })
 
 
