@@ -45,13 +45,23 @@ route.post('/modifyApt',(req,res)=>{
   console.log(req)
 	doctor.findOne({providerName:req.body.providerName})
 	.then((result)=>{
+    console.log(result.providerId)
 		slots.findOne({providerId:result.providerId,date:req.body.date})
     .then((rlt)=>{
-      rlt.bookedStatus=false
-      rlt.save()
-      res.send(result.providerId)
+      console.log(rlt)
+      if(rlt === null){
+        res.sendStatus(400)
+      }
+      else{
+        console.log("Changed BookedStatus")
+        rlt.bookedStatus=false
+        rlt.save()
+        res.send(result.providerId)
+        // return res.sendStatus(200)
+      }
     })
     .catch(err=>{
+      console.log("modifyApt")
       console.log(err)
     })
 	})
