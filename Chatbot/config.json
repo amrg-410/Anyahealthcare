@@ -1,0 +1,17 @@
+{
+    "name": "Anya",
+    "envVariables": [
+        {
+            "key": "url",
+            "value": "https://anyachatbot.cyclic.app/",
+            "variableType": "env",
+            "hint": "",
+            "scope": "prePopulated",
+            "group": "",
+            "propagateValue": false,
+            "vNameSpace": [
+                "034caad9-167b-5f12-b8b7-417c99c792de"
+            ]
+        }
+    ]
+}
