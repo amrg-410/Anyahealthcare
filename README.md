@@ -16,14 +16,14 @@ Booking status and confirmation through E-Mail.
 Humanlike conversation.
 
 # Technological stack :
-•	Kore.ai XO Platform
-•	MongoDB
-•	Node.js
+•	Kore.ai XO Platform <br>
+•	MongoDB <br>
+•	Node.js <br>
 
 # External API integrations:
-•	Infermedica API
-•	Nutritionix API
-•	Google translate API
+•	Infermedica API <br>
+•	Nutritionix API <br>
+•	Google translate API <br>
 
 # Try our bot
 
